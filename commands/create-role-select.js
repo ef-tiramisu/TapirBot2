@@ -10,17 +10,7 @@ module.exports = {
             fields: [
                 {
                     name: 'Role',
-                    value: 'Dota 2\nOverwatch\nAmong Us\nGMod\nHoI\nMinecraft',
-                    inline: true,
-                },
-                {
-                    name: '\u200b',
-                    value: '\u200b',
-                    inline: true,
-                },
-                {
-                    name: 'Reaction',
-                    value: ':zero:\n:one:\n:two:\n:three:\n:four:\n:five',
+                    value: ':zero: - Dota 2\n:one: - Overwatch\n:two: - Among Us\n:three: - GMod\n:four: - HoI',
                     inline: true,
                 },
             ],
