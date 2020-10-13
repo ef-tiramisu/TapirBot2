@@ -16,11 +16,11 @@ module.exports = {
             ],
         };
         message.channel.send({ embed: exampleEmbed });
-        message.channel.lastMessage.react(emoji => emoji.name === "zero")
-        message.channel.lastMessage.react(emoji => emoji.name === "one")
-        message.channel.lastMessage.react(emoji => emoji.name === "two")
-        message.channel.lastMessage.react(emoji => emoji.name === "three")
-        message.channel.lastMessage.react(emoji => emoji.name === "four")
+        message.channel.lastMessage.react(zero.id)
+        message.channel.lastMessage.react(one.id)
+        message.channel.lastMessage.react(two.id)
+        message.channel.lastMessage.react(three.id)
+        message.channel.lastMessage.react(four.id)
 
     },
 };
