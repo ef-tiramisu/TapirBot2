@@ -1,4 +1,5 @@
 {
 	"prefix": "!",
-	"token": "YourTokenGoesHere"
+	"token": "YourTokenGoesHere",
+	"role_channel": "role-select"
 }

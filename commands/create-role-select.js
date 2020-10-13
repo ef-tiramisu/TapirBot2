@@ -1,15 +1,27 @@
+const { MessageEmbedImage } = require("discord.js");
+
 module.exports = {
     name: 'create-select',
     description: 'Lists all commands',
     execute(message) {
-        const role_embed = new MessageEmbed()
-      // Set the title of the field
-        .Title('Games')
-      // Set the color of the embed
-        .Color(0xff0000)
-      // Set the main content of the embed
-        .Description('Dota 2\nOverwatch\nAmong Us\nDnD\nMinecraft\nHearts of Iron');
-    // Send the embed to the same channel as the message
-        message.channel.send(role_embed);
+        const Embed = new Discord.MessageEmbed()
+	    .setColor('#0099ff')
+	    .setTitle('Some title')
+	    .setURL('https://discord.js.org/')
+	    .setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+	    .setDescription('Some description here')
+	    .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+	    .addFields(
+		    { name: 'Regular field title', value: 'Some value here' },
+		    { name: '\u200B', value: '\u200B' },
+		    { name: 'Inline field title', value: 'Some value here', inline: true },
+		    { name: 'Inline field title', value: 'Some value here', inline: true },
+    	)
+	    .addField('Inline field title', 'Some value here', true)
+	    .setImage('https://i.imgur.com/wSTFkRM.png')
+    	.setTimestamp()
+        .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+        
+        message.channel.send(Embed)
     },
 };
