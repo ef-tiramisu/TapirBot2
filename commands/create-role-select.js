@@ -16,11 +16,11 @@ module.exports = {
             ],
         };
         message.channel.send({ embed: exampleEmbed });
-        message.channel.lastMessage.react('\:zero:')
-        message.channel.lastMessage.react('\:one:')
-        message.channel.lastMessage.react('\:two:')
-        message.channel.lastMessage.react('\:three:')
-        message.channel.lastMessage.react('\:four:')
+        message.channel.lastMessage.react('0⃣')
+        message.channel.lastMessage.react('1⃣')
+        message.channel.lastMessage.react('2⃣')
+        message.channel.lastMessage.react('3⃣')
+        message.channel.lastMessage.react('4⃣')
 
     },
 };
