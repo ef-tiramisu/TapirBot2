@@ -14,12 +14,16 @@ module.exports = {
                     inline: true,
                 },
                 {
+                    name: '\u200b',
+                    value: '\u200b',
+                    inline: true,
+                },
+                {
                     name: 'Reaction',
-                    value: ':zero:\n:one:\n:two\n:three:\n:four:\n:five',
+                    value: ':zero:\n:one:\n:two:\n:three:\n:four:\n:five',
                     inline: true,
                 },
             ],
-            timestamp: new Date(),
         };
         message.channel.send({ embed: exampleEmbed });
     },
