@@ -7,18 +7,15 @@ module.exports = {
             title: 'Roles',
 
             description: 'React for Roles',
-            thumbnail: {
-                url: 'https://i.imgur.com/wSTFkRM.png',
-            },
             fields: [
                 {
-                    name: 'Inline field title',
-                    value: 'Some value here',
+                    name: 'Role',
+                    value: 'Dota 2\nOverwatch\nAmong Us\nGMod\nHoI\nMinecraft',
                     inline: true,
                 },
                 {
-                    name: 'Inline field title',
-                    value: 'Some value here',
+                    name: 'Reaction',
+                    value: ':zero:\n:one:\n:two\n:three:\n:four:\n:five',
                     inline: true,
                 },
             ],
