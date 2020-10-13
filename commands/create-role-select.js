@@ -15,12 +15,13 @@ module.exports = {
                 },
             ],
         };
-        message.channel.send({ embed: exampleEmbed });
-        message.channel.lastMessage.react('0⃣')
-        message.channel.lastMessage.react('1⃣')
-        message.channel.lastMessage.react('2⃣')
-        message.channel.lastMessage.react('3⃣')
-        message.channel.lastMessage.react('4⃣')
+        message.channel.send({ embed: exampleEmbed }).then(embedMessage => {
+            embedMessage.react('0⃣');
+            embedMessage.react('1⃣')
+            embedMessage.react('2⃣')
+            embedMessage.react('3⃣')
+            embedMessage.react('4⃣')
+        });
 
     },
 };
