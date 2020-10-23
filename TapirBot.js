@@ -43,7 +43,7 @@ client.on('message', message =>{
 });
 
 client.on('MessageReaction', reaction =>{
-	if (!reaction.message.channel == reaction.guild.channel.find(channel.name === "Dota 2")) return;
+	if (!reaction.message.channel == reaction.guild.channel.find(channel.name ===  role_channel)) return;
 
 	if (reaction.client.user.bot == true) return;
 	try {
