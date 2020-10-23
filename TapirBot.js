@@ -47,10 +47,17 @@ client.on('messageReactionAdd', async (reaction, user) =>{
 
 	const guildMember = reaction.message.guild.members.get(user.id); 
 
-	if (guildMember.bot == true) return;
+	if (user.bot===true) return;
 
 	try {
 		reaction.message.channel.send('test')
+		switch(reaction.emoji){
+			case '0⃣':
+				user.roles.addRole(reaction.guild.role.find(role.name === 'Dota 2'))
+				break;
+			default:
+				break;
+		}
 	}
 	catch (error) {
 		console.error(error);
