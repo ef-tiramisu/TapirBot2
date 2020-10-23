@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const fs = require('fs');
-const { prefix, token } = require('./config.json');
+const { prefix, token, role_channel } = require('./config.json');
 
 
 const client = new Discord.Client();
@@ -40,6 +40,23 @@ client.on('message', message =>{
     		message.reply('there was an error trying to execute that command!');
 		}
 
+});
+
+client.on('MessageReaction', reaction =>{
+	if (!reaction.message.channel.toString() == role_channel) return;
+
+	if (reaction.client.user.bot == true) return;
+
+	switch(reaction.emoji) {
+	case '0⃣':
+		var role = reaction.guild.roles.find(role => role.name === "Dota 2");
+		reaction.client.user.roles.add(role)
+		break;
+	case y:
+		break;
+	default:
+		break;
+	}
 });
 
 //
