@@ -42,17 +42,17 @@ client.on('message', message =>{
 
 });
 
-client.on('MessageReactionAdd', reaction =>{
-	if (!reaction.message.channel == reaction.guild.channel.find(channel.name ===  role_channel)) return;
+client.on('MessageReactionAdd', (reaction, user) =>{
+	if (!reaction.message.channel == reaction.guild.channel.find(channel.name === role_channel)) return;
 
-	if (reaction.client.user.bot == true) return;
-	
+	if (user.bot == true) return;
+
 	try {
 		switch(reaction.emoji) {
 			case '0⃣':
 			reaction.message.channel.send('test')
 			var role = reaction.guild.roles.find(role => role.name === "Dota 2");
-			reaction.users.user.roles.add(role)
+			user.roles.add(role)
 			break;
 		case y:
 			break;
