@@ -46,18 +46,24 @@ client.on('MessageReaction', reaction =>{
 	if (!reaction.message.channel == reaction.guild.channel.find(channel.name === "Dota 2")) return;
 
 	if (reaction.client.user.bot == true) return;
-
-	switch(reaction.emoji) {
-	case '0⃣':
-		reaction.message.channel.send('test')
-		var role = reaction.guild.roles.find(role => role.name === "Dota 2");
-		reaction.client.user.roles.add(role)
-		break;
-	case y:
-		break;
-	default:
-		break;
+	try {
+		switch(reaction.emoji) {
+			case '0⃣':
+			reaction.message.channel.send('test')
+			var role = reaction.guild.roles.find(role => role.name === "Dota 2");
+			reaction.client.user.roles.add(role)
+			break;
+		case y:
+			break;
+		default:
+			break;
+		}
 	}
+	catch (error) {
+		console.error(error);
+		message.reply('there was an error trying to execute that command!');
+	}
+	
 });
 
 //
