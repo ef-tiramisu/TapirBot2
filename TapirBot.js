@@ -49,7 +49,7 @@ client.on('MessageReaction', reaction =>{
 
 	switch(reaction.emoji) {
 	case '0⃣':
-		!reaction.message.channel.send('test')
+		reaction.message.channel.send('test')
 		var role = reaction.guild.roles.find(role => role.name === "Dota 2");
 		reaction.client.user.roles.add(role)
 		break;
