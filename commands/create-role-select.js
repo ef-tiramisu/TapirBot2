@@ -10,7 +10,7 @@ module.exports = {
             fields: [
                 {
                     name: 'Role',
-                    value: ':zero: - Dota 2\n:one: - Overwatch\n:two: - GMod\n:three: - HoI\n:four: - Tabletop\n:five: - Party Games\n:six: - Strategy\n',
+                    value: ':zero: - Dota 2\n:one: - Overwatch\n:two: - GMod\n:three: - HoI\n:four: - Tabletop\n:five: - Party Games\n:six: - Strategy',
                     inline: true,
                 },
             ],
