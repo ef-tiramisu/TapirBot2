@@ -26,7 +26,6 @@ client.on("ready", () => {
 	}
 	catch (error) {
 		console.error(error);
-		message.reply('there was an error fetching messages');
 	}
 	console.log('ready');
 });
@@ -46,7 +45,6 @@ client.on('message', message =>{
 			}
 		catch (error) {
    			console.error(error);
-    		message.reply('there was an error trying to execute that command!');
 		}
 
 });
@@ -73,7 +71,6 @@ var changeRole = function(emote,user,msg,hasRole){
 	}
 	catch (error) {
 		console.error(error);
-		message.reply('there was an error trying to assign/remove a role!');
 	}
 }
 
