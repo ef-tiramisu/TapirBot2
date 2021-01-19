@@ -19,7 +19,7 @@ for (const file of commandFiles) {
 
 //sets game on bot startup
 client.on("ready", () => {
-	client.user.setActivity('with my snout', { type: 'Playing' });
+	client.user.setActivity('with my snout', { type: 'PLAYING' });
 	try {
 	let roleChannel = client.guilds.cache.get(reactionEmotes.serverID).channels.cache.get(reactionEmotes.roleChannelID);
 	roleChannel.messages.fetch(reactionEmotes.roleMsgID1);
