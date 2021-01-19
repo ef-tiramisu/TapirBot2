@@ -21,7 +21,7 @@ for (const file of commandFiles) {
 client.on("ready", () => {
 	client.user.setActivity('with my snout', { type: 'Playing' });
 	try {
-	let roleChannel = client.servers.cache.get(reactionEmotes.serverID).channels.cache.get(reactionEmotes.roleChannelID);
+	let roleChannel = client.guilds.cache.get(reactionEmotes.serverID).channels.cache.get(reactionEmotes.roleChannelID);
 	roleChannel.messages.fetch(reactionEmotes.roleMsgID1);
 	}
 	catch (error) {
