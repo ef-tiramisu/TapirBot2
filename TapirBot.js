@@ -60,9 +60,9 @@ var changeRole = function(emote,user,msg,hasRole){
 				roleID = reactionEmotes.overwatchRole;
 			break;
 			default:
+				console.log("error")
 			return;
 		}
-		
 		if (!hasRole) {
 			msg.guild.member(user.id).roles.add(roleID);
 		} else {
@@ -88,7 +88,7 @@ client.on('messageReactionRemove', (reaction, user) =>{
 	let msg = reaction.message;
 	let emote = reaction.emoji;
 	if (msg.id == reactionEmotes.roleMsgID1) {
-		changeRole(emote.name,user,msg,false)
+		changeRole(emote.name,user,msg,true)
 	}
 });
 
