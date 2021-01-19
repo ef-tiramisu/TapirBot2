@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const fs = require('fs');
 const { prefix, token, role_channel } = require('./config.json');
+const reactionEmotes = require('./emotes.json')
 
 
 const client = new Discord.Client();
@@ -19,6 +20,14 @@ for (const file of commandFiles) {
 //sets game on bot startup
 client.on("ready", () => {
 	client.user.setActivity('with my snout', { type: 'Playing' });
+	try {
+	roleChannel = client.guilds.cache.get(reactionEmotes.serverID).channels.cache.get(reactionEmotes.roleChannelID);
+	roleChannel.messages.fetch(reactionEmotes.roleMsgID1);
+	}
+	catch (error) {
+		console.error(error);
+		message.reply('there was an error fetching messages');
+	}
 	console.log('ready');
 });
 
@@ -42,30 +51,48 @@ client.on('message', message =>{
 
 });
 
-client.on('messageReactionAdd', async (reaction, user) =>{
-	if (!reaction.message.channel == reaction.guild.channel.find(channel.name === role_channel)) return;
-
-	const guildMember = reaction.message.guild.members.get(user.id); 
-
-	if (user.bot===true) return;
-
+var changeRole = function(emote,user,msg,hasRole){
+	roleID = "";
 	try {
-		reaction.message.channel.send('test')
-		switch(reaction.emoji){
-			case '0⃣':
-				user.roles.addRole(reaction.guild.role.find(role.name === 'Dota 2'))
-				break;
+		switch(emote){
+			case reactionEmotes.dotaEmote:
+				roleID = reactionEmotes.dotaRole;
+			break;
+			case reactionEmotes.overwatchEmote:
+				roleID = reactionEmotes.overwatchRole;
+			break;
 			default:
-				break;
+			return;
+		}
+		
+		if (!hasRole) {
+			msg.guild.member(user.id).roles.add(roleID);
+		} else {
+			msg.guild.member(user.id).roles.remove(roleID);
 		}
 	}
 	catch (error) {
 		console.error(error);
-		message.reply('there was an error trying to execute that command!');
+		message.reply('there was an error trying to assign/remove a role!');
 	}
-	
+}
+
+client.on('messageReactionAdd', (reaction, user) =>{
+	if (user.bot===true) return;
+	let msg = reaction.message;
+	let emote = reaction.emoji;
+	if (msg.id == reactionEmotes.roleMsgID1) {
+		changeRole(emote.name,user,msg,false)
+	}
 });
 
-//
+client.on('messageReactionRemove', (reaction, user) =>{
+	if (user.bot===true) return;
+	let msg = reaction.message;
+	let emote = reaction.emoji;
+	if (msg.id == reactionEmotes.roleMsgID1) {
+		changeRole(emote.name,user,msg,false)
+	}
+});
 
 client.login(token);
