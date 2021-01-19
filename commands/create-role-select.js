@@ -10,7 +10,7 @@ module.exports = {
             fields: [
                 {
                     name: 'Role',
-                    value: ':zero: - Dota 2\n:one: - Overwatch\n:two: - Among Us\n:three: - GMod\n:four: - HoI\n:five: - Tabletop\n:six: - Party Games\n:seven: - Strategy',
+                    value: ':zero: - Dota 2\n:one: - Overwatch\n:two: - GMod\n:three: - HoI\n:four: - Tabletop\n:five: - Party Games\n:six: - Strategy\n',
                     inline: true,
                 },
             ],
@@ -23,7 +23,6 @@ module.exports = {
             embedMessage.react('4⃣')
             embedMessage.react('5⃣')
             embedMessage.react('6⃣')
-            embedMessage.react('7⃣')
         });
 
     },

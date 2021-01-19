@@ -59,6 +59,21 @@ var changeRole = function(emote,user,msg,hasRole){
 			case reactionEmotes.overwatchEmote:
 				roleID = reactionEmotes.overwatchRole;
 			break;
+			case reactionEmotes.gmodEmote:
+				roleID = reactionEmotes.gmodRole;
+			break;
+			case reactionEmotes.hoiEmote:
+				roleID = reactionEmotes.hoihRole;
+			break;
+			case reactionEmotes.tabletopEmote:
+				roleID = reactionEmotes.tabletopRole;
+			break;
+			case reactionEmotes.partyEmote:
+				roleID = reactionEmotes.partyRole;
+			break;
+			case reactionEmotes.strategyEmote:
+				roleID = reactionEmotes.strategyRole;
+			break;
 			default:
 				console.log("error")
 			return;
