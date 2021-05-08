@@ -26,9 +26,9 @@ module.exports = {
         });
         const colorEmbed = {
             color: 0x0099ff,
-            title: 'Roles',
+            title: 'Colours',
 
-            description: 'React for Roles',
+            description: 'React for a Colour',
             fields: [
                 {
                     name: 'Colour',
