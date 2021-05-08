@@ -24,9 +24,6 @@ module.exports = {
             embedMessage.react('5⃣')
             embedMessage.react('6⃣')
         });
-
-    },
-    execute(message) {
         const colorEmbed = {
             color: 0x0099ff,
             title: 'Roles',
@@ -50,6 +47,5 @@ module.exports = {
             colorMessage.react('🤎')
             colorMessage.react('💗')
         });
-
     },
 };
