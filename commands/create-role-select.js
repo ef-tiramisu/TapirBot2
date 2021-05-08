@@ -26,4 +26,30 @@ module.exports = {
         });
 
     },
+    execute(message) {
+        const colorEmbed = {
+            color: 0x0099ff,
+            title: 'Roles',
+
+            description: 'React for Roles',
+            fields: [
+                {
+                    name: 'Colour',
+                    value: ':heart: - Red\n:orange_heart: - Orange\n:yellow_heart: - Yellow\n:green_heart: - Green\n:blue_heart: - Blue\n:purple_heart: - Purple\n:brown_heart: - Brown\n:heartpulse: - Pink',
+                    inline: true,
+                },
+            ],
+        };
+        message.channel.send({ embed: exampleEmbed }).then(embedMessage => {
+            embedMessage.react('❤️');
+            embedMessage.react('🧡')
+            embedMessage.react('💛')
+            embedMessage.react('💚')
+            embedMessage.react('💙')
+            embedMessage.react('💜')
+            embedMessage.react('🤎')
+            embedMessage.react('💗')
+        });
+
+    },
 };

@@ -74,6 +74,30 @@ var changeRole = function(emote,user,msg,hasRole){
 			case reactionEmotes.strategyEmote:
 				roleID = reactionEmotes.strategyRole;
 			break;
+			case reactionEmotes.redEmote:
+				roleID = reactionEmotes.redRole;
+			break;
+			case reactionEmotes.orangeEmote:
+				roleID = reactionEmotes.orangeRole;
+			break;
+			case reactionEmotes.yellowEmote:
+				roleID = reactionEmotes.yellowRole;
+			break;
+			case reactionEmotes.greenEmote:
+				roleID = reactionEmotes.greenRole;
+			break;
+			case reactionEmotes.blueEmote:
+				roleID = reactionEmotes.blueRole;
+			break;
+			case reactionEmotes.purpleEmote:
+				roleID = reactionEmotes.purpleRole;
+			break;
+			case reactionEmotes.brownEmote:
+				roleID = reactionEmotes.brownRole;
+			break;
+			case reactionEmotes.pinkEmote:
+				roleID = reactionEmotes.pinkRole;
+			break;
 			default:
 				console.log("error")
 			return;
@@ -93,7 +117,7 @@ client.on('messageReactionAdd', (reaction, user) =>{
 	if (user.bot===true) return;
 	let msg = reaction.message;
 	let emote = reaction.emoji;
-	if (msg.id == reactionEmotes.roleMsgID1) {
+	if (msg.id == reactionEmotes.roleMsgID1 || msg.id == reactionEmotes.roleMsgID2) {
 		changeRole(emote.name,user,msg,false)
 	}
 });
@@ -102,7 +126,7 @@ client.on('messageReactionRemove', (reaction, user) =>{
 	if (user.bot===true) return;
 	let msg = reaction.message;
 	let emote = reaction.emoji;
-	if (msg.id == reactionEmotes.roleMsgID1) {
+	if (msg.id == reactionEmotes.roleMsgID1 || msg.id == reactionEmotes.roleMsgID2) {
 		changeRole(emote.name,user,msg,true)
 	}
 });
