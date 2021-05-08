@@ -40,15 +40,15 @@ module.exports = {
                 },
             ],
         };
-        message.channel.send({ embed: exampleEmbed }).then(embedMessage => {
-            embedMessage.react('❤️');
-            embedMessage.react('🧡')
-            embedMessage.react('💛')
-            embedMessage.react('💚')
-            embedMessage.react('💙')
-            embedMessage.react('💜')
-            embedMessage.react('🤎')
-            embedMessage.react('💗')
+        message.channel.send({ embed: colorEmbed }).then(colorMessage => {
+            colorMessage.react('❤️');
+            colorMessage.react('🧡')
+            colorMessage.react('💛')
+            colorMessage.react('💚')
+            colorMessage.react('💙')
+            colorMessage.react('💜')
+            colorMessage.react('🤎')
+            colorMessage.react('💗')
         });
 
     },
