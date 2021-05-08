@@ -23,6 +23,7 @@ client.on("ready", () => {
 	try {
 	let roleChannel = client.guilds.cache.get(reactionEmotes.serverID).channels.cache.get(reactionEmotes.roleChannelID);
 	roleChannel.messages.fetch(reactionEmotes.roleMsgID1);
+	roleChannel.messages.fetch(reactionEmotes.roleMsgID2);
 	}
 	catch (error) {
 		console.error(error);
