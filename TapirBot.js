@@ -1,11 +1,13 @@
-const Discord = require("discord.js");
+
+const { Client, Intents, Collection } = require('discord.js');
 const fs = require('fs');
 const { prefix, token, role_channel } = require('./config.json');
 const reactionEmotes = require('./emotes.json')
 
+const myIntents = new Intents(3867);
 
-const client = new Discord.Client();
-client.commands = new Discord.Collection();
+const client = new Client({ intents: [myIntents] });
+client.commands = new Collection();
 
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -33,7 +35,7 @@ client.on("ready", () => {
 
 
 //command handling
-client.on('message', message =>{
+client.on('messageCreate', message =>{
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).split(/ +/);
@@ -52,6 +54,7 @@ client.on('message', message =>{
 
 var changeRole = function(emote,user,msg,hasRole){
 	roleID = "";
+
 	try {
 		switch(emote){
 			case reactionEmotes.dotaEmote:
@@ -64,7 +67,7 @@ var changeRole = function(emote,user,msg,hasRole){
 				roleID = reactionEmotes.gmodRole;
 			break;
 			case reactionEmotes.hoiEmote:
-				roleID = reactionEmotes.hoihRole;
+				roleID = reactionEmotes.hoiRole;
 			break;
 			case reactionEmotes.tabletopEmote:
 				roleID = reactionEmotes.tabletopRole;
@@ -103,10 +106,13 @@ var changeRole = function(emote,user,msg,hasRole){
 				console.log("error")
 			return;
 		}
+		console.log(roleID);
+		let assignableRole = msg.guild.roles.cache.get(roleID);
+
 		if (!hasRole) {
-			msg.guild.member(user.id).roles.add(roleID);
+			msg.guild.members.cache.get(user.id).roles.add(assignableRole);
 		} else {
-			msg.guild.member(user.id).roles.remove(roleID);
+			msg.guild.members.cache.get(user.id).roles.remove(assignableRole);
 		}
 	}
 	catch (error) {
@@ -114,19 +120,23 @@ var changeRole = function(emote,user,msg,hasRole){
 	}
 }
 
-client.on('messageReactionAdd', (reaction, user) =>{
+client.on('messageReactionAdd', (messageReaction, user) =>{
 	if (user.bot===true) return;
-	let msg = reaction.message;
-	let emote = reaction.emoji;
+
+	let msg = messageReaction.message;
+	let emote = messageReaction.emoji;
+
 	if (msg.id == reactionEmotes.roleMsgID1 || msg.id == reactionEmotes.roleMsgID2) {
 		changeRole(emote.name,user,msg,false)
 	}
 });
 
-client.on('messageReactionRemove', (reaction, user) =>{
+client.on('messageReactionRemove', (messageReaction, user) =>{
 	if (user.bot===true) return;
-	let msg = reaction.message;
-	let emote = reaction.emoji;
+
+        let msg = messageReaction.message;
+        let emote = messageReaction.emoji;
+
 	if (msg.id == reactionEmotes.roleMsgID1 || msg.id == reactionEmotes.roleMsgID2) {
 		changeRole(emote.name,user,msg,true)
 	}

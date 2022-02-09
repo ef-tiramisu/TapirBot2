@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Tira-misuu/TapirBot2#readme",
   "dependencies": {
-    "discord.js": "^11.6.4"
+    "discord.js": "^13.6.0"
   }
 }
