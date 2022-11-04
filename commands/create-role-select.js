@@ -14,7 +14,7 @@ module.exports = {
             inline: true}
         );
 
-        message.channel.send({ embed: roleEmbed }).then(embedMessage => {
+        message.channel.send({ embeds: [roleEmbed] }).then(embedMessage => {
             embedMessage.react('0⃣');
             embedMessage.react('1⃣')
             embedMessage.react('2⃣')
@@ -36,7 +36,7 @@ module.exports = {
             },
         );
 
-        message.channel.send({ embed: colorEmbed }).then(colorMessage => {
+        message.channel.send({ embeds: [colorEmbed] }).then(colorMessage => {
             colorMessage.react('❤️');
             colorMessage.react('🧡')
             colorMessage.react('💛')
