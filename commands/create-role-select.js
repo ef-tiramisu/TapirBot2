@@ -1,3 +1,4 @@
+const { EmbedBuilder } = require('discord.js');
 module.exports = {
     name: 'create-role-select',
     description: 'create role select',
