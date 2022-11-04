@@ -26,6 +26,8 @@ client.on("ready", () => {
 	let roleChannel = client.guilds.cache.get(reactionEmotes.serverID).channels.cache.get(reactionEmotes.roleChannelID);
 	roleChannel.messages.fetch(reactionEmotes.roleMsgID1);
 	roleChannel.messages.fetch(reactionEmotes.roleMsgID2);
+	roleChannel.messages.fetch(reactionEmotes.roleMsgID3);
+	roleChannel.messages.fetch(reactionEmotes.roleMsgID4);
 	}
 	catch (error) {
 		console.error(error);
@@ -126,7 +128,7 @@ client.on('messageReactionAdd', (messageReaction, user) =>{
 	let msg = messageReaction.message;
 	let emote = messageReaction.emoji;
 
-	if (msg.id == reactionEmotes.roleMsgID1 || msg.id == reactionEmotes.roleMsgID2) {
+	if (msg.id == reactionEmotes.roleMsgID1 || msg.id == reactionEmotes.roleMsgID2 || msg.id == reactionEmotes.roleMsgID3 || msg.id == reactionEmotes.roleMsgID4 ) {
 		changeRole(emote.name,user,msg,false)
 	}
 });
@@ -137,7 +139,7 @@ client.on('messageReactionRemove', (messageReaction, user) =>{
         let msg = messageReaction.message;
         let emote = messageReaction.emoji;
 
-	if (msg.id == reactionEmotes.roleMsgID1 || msg.id == reactionEmotes.roleMsgID2) {
+	if (msg.id == reactionEmotes.roleMsgID1 || msg.id == reactionEmotes.roleMsgID2 || msg.id == reactionEmotes.roleMsgID3 || msg.id == reactionEmotes.roleMsgID4 ) {
 		changeRole(emote.name,user,msg,true)
 	}
 });
