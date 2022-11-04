@@ -1,10 +1,10 @@
-const { messageEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'create-role-select',
     description: 'create role select',
     execute(message) {
 
-        const roleEmbed = new messageEmbed()
+        const roleEmbed = new MessageEmbed()
         .setColor(0x0099ff)
         .setTitle("Roles")
         .setDescription("React for Roles")
@@ -24,7 +24,7 @@ module.exports = {
             embedMessage.react('6⃣')
         });
 
-        const colorEmbed = new EmbedBuilder()
+        const colorEmbed = new MessageEmbed()
         .setColor(0x0099ff)
         .setTitle("Colours")
         .setDescription("React for a Colour")
