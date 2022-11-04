@@ -1,5 +1,5 @@
 
-const { Client, Intents, Collection, EmbedBuilder } = require('discord.js');
+const { Client, Intents, Collection } = require('discord.js');
 const fs = require('fs');
 const { prefix, token, role_channel } = require('./config.json');
 const reactionEmotes = require('./emotes.json')

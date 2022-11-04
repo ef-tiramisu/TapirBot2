@@ -1,10 +1,10 @@
-const { EmbedBuilder } = require('discord.js');
+const { messageEmbed } = require('discord.js');
 module.exports = {
     name: 'create-role-select',
     description: 'create role select',
     execute(message) {
 
-        const roleEmbed = new EmbedBuilder()
+        const roleEmbed = new messageEmbed()
         .setColor(0x0099ff)
         .setTitle("Roles")
         .setDescription("React for Roles")
